@@ -15,4 +15,4 @@ The start the solution by running:
 
 Register opcserver with: opc.tcp://opcserver:4840
 
-![Register OPC server](../doc/Register.png)
+![Register OPC server](./doc/Register.png)
