@@ -1,0 +1,11 @@
+### 1. Get Linux
+FROM python:3.6
+
+### 2. Install opcua
+RUN pip install opcua
+
+###
+
+EXPOSE 4840    
+ADD server.py /
+CMD ["python3", "server.py"]

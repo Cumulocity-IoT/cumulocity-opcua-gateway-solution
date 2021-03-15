@@ -1,0 +1,10 @@
+C8Y:
+    baseUrl: https://TENANT_URL
+gateway:
+    bootstrap:
+        tenantId: TENANT_ID
+    identifier: Sample_Gateway_Device
+    name: Customer Gateway
+    db:
+# The gateway uses the local database to store platform credentials and local cache. This parameter shows the location in which the local data should be stored.
+        baseDir: ./data
