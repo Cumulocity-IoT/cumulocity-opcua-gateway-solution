@@ -10,4 +10,5 @@ Edit application-tenant.yaml and adapt the baseUrl and the tenantId:
         db:
 
 The start the solution by running:
+
     docker-compose up -d --no-deps --build
