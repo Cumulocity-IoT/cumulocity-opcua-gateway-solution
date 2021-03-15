@@ -1,6 +1,6 @@
 # OPC Server and Gateway
 
-This solutin creates a sample OPCServer including the required gates to connect the OPC server to cumulocity.
+This solution creates a sample OPCServer including the required gateway to connect the OPC server to Cumulocity.
 See as well: [OPC UA Agent Cumulocity](https://cumulocity.com/guides/10.7.0-beta/protocol-integration/opcua)
 
 # Edit application-tenant.yaml and adapt the baseUrl and the tenantId:
