@@ -8,3 +8,5 @@ services:
   gateway:
     build:
       context: ./gateway
+    volumes:
+    - ./data/:/data

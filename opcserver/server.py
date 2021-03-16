@@ -1,4 +1,6 @@
 import sys
+
+from opcua.ua.uaprotocol_auto import ServerStatusDataType
 sys.path.insert(0, "..")
 import time
 import math
@@ -54,7 +56,9 @@ if __name__ == "__main__":
     amplitude.set_writable()
     ctrl = myMachine.add_object(idx, "Controller")
     ctrl.set_modelling_rule(True)
-    ctrl.add_property(idx, "state", "Idle").set_modelling_rule(True)
+    state = ctrl.add_property(idx, "state", "Idle")
+    state.set_writable()
+    state.set_modelling_rule(True)
 
     # starting!
     server.start()
@@ -62,24 +66,34 @@ if __name__ == "__main__":
     # enable data change history for this particular node, must be called after start since it uses subscription
     server.historize_node_data_change(power, period=None, count=100)
     try:
+        i = 0
         while True:
+            i = i + 1
             time.sleep(1)
             logger.info('Starting loop')
             seconds = time.time()
             frequency = 100
-            logger.info('Frequency is ' + str(frequency))
-            logger.info('Calculating power')
+            # logger.info('Frequency is ' + str(frequency))
+            # logger.info('Calculating power')
             simPower = amplitude.get_value()*math.sin(seconds*frequency/100)
             logger.info('Power is ' + str(simPower))
-            logger.info('Changing values on server for resolution')
+            # logger.info('Changing values on server for resolution')
             resolution.set_value(frequency)
-            logger.info('Resolution is now: ' + str(frequency))
-            logger.info('Changing values on server for power')
+            # logger.info('Resolution is now: ' + str(frequency))
+            # logger.info('Changing values on server for power')
             dv = ua.DataValue(2)
             dv.ServerTimestamp = datetime.datetime.now()
             power.set_value(dv)
             power.set_value(round(simPower,1))
-            logger.info('Power is now: ' + str(simPower))
+            if (i <= 10):
+                state.set_value("active")
+            elif (i > 10 & i <= 20):
+                state.set_value("idle")
+            else:
+                i = 0
+            simState = state.get_value()
+            # logger.info('Power is now: ' + str(simPower))
+            logger.info('status is ' + str(simState))
             logger.info('Loop ends, sleeping')
     finally:
         #close connection, remove subcsriptions, etc
