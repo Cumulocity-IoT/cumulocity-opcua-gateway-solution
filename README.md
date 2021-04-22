@@ -4,16 +4,23 @@ This solution creates a sample OPCServer including the required gateway to conne
 See as well: [OPC UA Agent Cumulocity](https://cumulocity.com/guides/10.7.0-beta/protocol-integration/opcua)
 The registration data are stored in the ./data directory that are mapped as a volume to the docker service gateway. And thus still exits after a restart
 
-# Edit application-tenant.yaml and adapt the baseUrl and the tenantId:
-
-    C8Y:
-        baseUrl: https://TENANT_URL
+# Edit docker-compose.yaml and adapt the baseUrl,identifier and the tenantId:
+    version: "3.9"
+    services:
+    opcserver:
+        build:
+        context: ./opcserver
+        ports:
+        - "4840:4840"
     gateway:
-        bootstrap:
-            tenantId: TENANT_ID
-        identifier: Sample_Gateway_Device
-        name: Customer Gateway
-        db:
+        build:
+        context: ./gateway
+        environment:
+        - baseURL=https://TENANT_URL
+        - tenantId=TENANT_ID
+        - identifier=GATEWAY_IDENTIFIER
+        volumes:
+        - ./data/:/data
 
 The start the solution by running:
 

@@ -1,9 +1,9 @@
 C8Y:
-    baseUrl: https://ck2.eu-latest.cumulocity.com
+    baseURL: ${baseURL}
 gateway:
     bootstrap:
-        tenantId: t306817378
-    identifier: Gateway_Device_CK2
+      tenantId: ${tenantId}
+    identifier: ${identifier}
     name: Customer Gateway
     db:
 # The gateway uses the local database to store platform credentials and local cache. This parameter shows the location in which the local data should be stored.
