@@ -1,5 +1,5 @@
 C8Y:
-    baseURL: ${baseURL}
+    baseUrl: ${baseUrl}
 gateway:
     bootstrap:
       tenantId: ${tenantId}

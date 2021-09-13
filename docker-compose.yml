@@ -11,6 +11,6 @@ services:
     environment:
     - baseURL=https://TENANT_URL
     - tenantId=TENANT_ID
-    - identifier=GATEWAY_IDENTIFIER2
+    - identifier=GATEWAY_IDENTIFIER
     volumes:
     - ./data/:/data
