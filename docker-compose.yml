@@ -9,7 +9,7 @@ services:
     build:
       context: ./gateway
     environment:
-    - baseURL=https://TENANT_URL
+    - baseUrl=https://TENANT_URL
     - tenantId=TENANT_ID
     - identifier=GATEWAY_IDENTIFIER
     volumes:
