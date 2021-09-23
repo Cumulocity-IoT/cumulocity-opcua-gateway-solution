@@ -19,7 +19,7 @@ if __name__ == "__main__":
     logger.info('Starting Server')
     server = Server()
     logger.info('Setting endpoint')
-    server.set_endpoint("opc.tcp://0.0.0.0:4840/freeopcua/server/")
+    server.set_endpoint("opc.tcp://0.0.0.0:4840/")
     logger.info('Setting Servername')
     server.set_server_name("Maschinenfertiger Example OPCUA Server")
 
