@@ -9,8 +9,9 @@ services:
     build:
       context: ./gateway
     environment:
-    - baseUrl=https://TENANT_URL
-    - tenantId=TENANT_ID
-    - identifier=GATEWAY_IDENTIFIER
+    - baseUrl=https://ck2.eu-latest.cumulocity.com
+    - tenantId=t306817378
+    - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE1
+    - gatewayName=Line1 Gateway
     volumes:
     - ./data/:/data

@@ -18,17 +18,23 @@ RUN apk update \
 
 ####
 
+ARG OPC_UA_VERSION=1011.0.4
+ENV OPC_UA_JAR=opcua-device-gateway-${OPC_UA_VERSION}.jar
+
+
 ADD application-tenant.yaml /
 ADD logging.xml /
 
 # integrate opcua gateway
 # alternative 1
-ADD http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-1010.0.8.jar /
+ADD http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_VERSION}.jar /
 
 # alternative 2
 # alternatively run the following commands locally
 # wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-1010.0.8.jar
 # and uncomment the following line ...
-# ADD ./opcua-device-gateway-1010.0.8.jar /
+# ADD ./opcua-device-gateway-${OPC_UA_VERSION}.jar /
 
-CMD ["/usr/bin/java", "-Dlogging.config=file:./logging.xml", "-Dspring.profiles.active=default,tenant", "-jar", "opcua-device-gateway-1010.0.8.jar", "-Dspring.config.location=file:./application-tenant.yaml"]
+# CMD ["sh -c", "/usr/bin/java", "-Dlogging.config=file:./logging.xml", "-Dspring.profiles.active=default,tenant", "-jar $OPC_UA_JAR" , "-Dspring.config.location=file:./application-tenant.yaml"]
+CMD /usr/bin/java -Dlogging.config=file:./logging.xml -Dspring.profiles.active=default,tenant -jar $OPC_UA_JAR -Dspring.config.location=file:./application-tenant.yaml
+# ENTRYPOINT ["tail", "-f", "/dev/null"]

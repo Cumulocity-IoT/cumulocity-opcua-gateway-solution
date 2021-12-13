@@ -3,8 +3,8 @@ C8Y:
 gateway:
     bootstrap:
       tenantId: ${tenantId}
-    identifier: ${identifier}
-    name: Customer Gateway
+    identifier: ${gatewayIdentifier}
+    name: ${gatewayName}
     db:
 # The gateway uses the local database to store platform credentials and local cache. This parameter shows the location in which the local data should be stored.
         baseDir: ./data
