@@ -18,7 +18,8 @@ The registration data are stored in the ./data directory that are mapped as a vo
         environment:
         - baseURL=https://TENANT_URL
         - tenantId=TENANT_ID
-        - identifier=GATEWAY_IDENTIFIER
+        - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE1
+        - gatewayName=Line1 Gateway
         volumes:
         - ./data/:/data
 

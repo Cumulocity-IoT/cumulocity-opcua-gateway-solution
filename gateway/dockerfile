@@ -9,18 +9,8 @@ RUN apk update \
 && apk add --no-cache curl \
 && apk add --no-cache  openjdk11
 
-## RUN wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-1010.0.8.jar
-
-####
-#### OPTIONAL : 4. SET JAVA_HOME environment variable, uncomment the line below if you need it
-
-#ENV JAVA_HOME="/usr/lib/jvm/java-1.8-openjdk"
-
-####
-
 ARG OPC_UA_VERSION=1011.0.4
 ENV OPC_UA_JAR=opcua-device-gateway-${OPC_UA_VERSION}.jar
-
 
 ADD application-tenant.yaml /
 ADD logging.xml /
@@ -31,7 +21,7 @@ ADD http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_U
 
 # alternative 2
 # alternatively run the following commands locally
-# wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-1010.0.8.jar
+# wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_VERSION}.jar
 # and uncomment the following line ...
 # ADD ./opcua-device-gateway-${OPC_UA_VERSION}.jar /
 
