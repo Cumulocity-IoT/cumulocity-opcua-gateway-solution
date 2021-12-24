@@ -2,7 +2,7 @@
 
 This solution creates a sample OPCServer including the required gateway to connect the OPC server to Cumulocity.
 See as well: [OPC UA Agent Cumulocity](https://cumulocity.com/guides/10.7.0-beta/protocol-integration/opcua)
-The registration data are stored in the ./data directory that are mapped as a volume to the docker service gateway. And thus still exits after a restart
+The registration data are stored in the ./data directory that are mapped as a volume to the docker service gateway. And thus still exits after a restart.
 
 # Edit docker-compose.yaml and adapt the baseUrl,identifier and the tenantId:
     version: "3.9"
@@ -27,7 +27,9 @@ The start the solution by running:
 
     docker-compose up -d --no-deps --build
 
-# Register opcserver with: opc.tcp://opcserver:4840
+# Register opcserver
+
+Enter url opc.tcp://opcserver:4840 to connect the opc simulation server with Cumulocity gateway.
 
 ![Register OPC server](./doc/Register.png)
 
