@@ -9,21 +9,22 @@ RUN apk update \
 && apk add --no-cache curl \
 && apk add --no-cache  openjdk11
 
-ARG OPC_UA_VERSION=1011.0.4
-ENV OPC_UA_JAR=opcua-device-gateway-${OPC_UA_VERSION}.jar
+# Define version in docker-compose
+ARG OPC_UA_GATEWAY_VERSION=1011.0.4
+ENV OPC_UA_JAR=opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar
 
 ADD application-tenant.yaml /
 ADD logging.xml /
 
 # integrate opcua gateway
 # alternative 1
-ADD http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_VERSION}.jar /
+ADD http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar /
 
 # alternative 2
 # alternatively run the following commands locally
-# wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_VERSION}.jar
+# wget http://resources.cumulocity.com/examples/opc-ua/opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar
 # and uncomment the following line ...
-# ADD ./opcua-device-gateway-${OPC_UA_VERSION}.jar /
+# ADD ./opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar /
 
 # CMD ["sh -c", "/usr/bin/java", "-Dlogging.config=file:./logging.xml", "-Dspring.profiles.active=default,tenant", "-jar $OPC_UA_JAR" , "-Dspring.config.location=file:./application-tenant.yaml"]
 CMD /usr/bin/java -Dlogging.config=file:./logging.xml -Dspring.profiles.active=default,tenant -jar $OPC_UA_JAR -Dspring.config.location=file:./application-tenant.yaml
