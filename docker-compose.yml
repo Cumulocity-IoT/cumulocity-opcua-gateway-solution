@@ -11,7 +11,7 @@ services:
       args:
         OPC_UA_GATEWAY_VERSION: 1011.0.22
     environment:
-    - baseURL=https://TENANT_URL
+    - baseUrl=https://TENANT_URL
     - tenantId=TENANT_ID
     - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE
     - gatewayName=Line1 Gateway
