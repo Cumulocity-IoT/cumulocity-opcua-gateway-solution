@@ -12,6 +12,7 @@ RUN apk update \
 # Define version in docker-compose
 ARG OPC_UA_GATEWAY_VERSION
 ARG OPC_UA_JAR=opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar
+ENV OPC_UA_JAR=${OPC_UA_JAR}
 
 ADD application-tenant.yaml /
 ADD logging.xml /
@@ -26,6 +27,6 @@ ADD http://resources.cumulocity.com/examples/opc-ua/${OPC_UA_JAR} /
 # and uncomment the following line ...
 # ADD ./opcua-device-gateway-${OPC_UA_GATEWAY_VERSION}.jar /
 
-CMD /usr/bin/java --illegal-access=permit --add-exports java.base/jdk.internal.ref=ALL-UNNAMED -Dlogging.config=file:./logging.xml -Dspring.profiles.active=default,tenant -jar $OPC_UA_JAR -Dspring.config.location=file:./application-tenant.yaml
+CMD /usr/bin/java -Dlogging.config=file:./logging.xml -Dspring.profiles.active=default,tenant -jar $OPC_UA_JAR -Dspring.config.location=file:./application-tenant.yaml  --illegal-access=permit --add-exports java.base/jdk.internal.ref=ALL-UNNAMED
 
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
