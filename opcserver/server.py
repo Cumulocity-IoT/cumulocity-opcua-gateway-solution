@@ -59,7 +59,8 @@ if __name__ == "__main__":
     amplitude.set_writable()
     ctrl = myMachine.add_object(idx, "Controller")
     ctrl.set_modelling_rule(True)
-    state = ctrl.add_property(idx, "State", "Idle")
+    # state = ctrl.add_property(idx, "State", "Idle")
+    state = ctrl.add_variable(idx, "State", "idle")
     state.set_writable()
     state.set_modelling_rule(True)
 
@@ -81,10 +82,12 @@ if __name__ == "__main__":
             current.set_value( round(math.cos(seconds) * 10.0, 2))
             frequency = frequency + 0.05 * frequency * random.randint(- 1,1 )   # Step direction (-1, 0, +1)
             power.set_value(round(simPower,2))
-            if ( i == 50 ):
-                state.set_value("Idle")
-            elif ( i == 100 ):
-                state.set_value("Active")
+            if ( i <= 20 ):
+                state.set_value("idle")
+            elif ( i <= 40 ):
+                state.set_value("active")
+            elif ( i < 150 ):
+                state.set_value("maintenance")
             elif ( i >= 150 ):
                 i = 0
             simState = state.get_value()
