@@ -1,6 +1,4 @@
 import sys
-
-from opcua.ua.uaprotocol_auto import ServerStatusDataType
 sys.path.insert(0, "..")
 import time
 import math
@@ -19,9 +17,7 @@ if __name__ == "__main__":
     # setup our server
     logger.info('Starting Server')
     server = Server()
-    logger.info('Setting endpoint')
     server.set_endpoint("opc.tcp://0.0.0.0:4840/")
-    logger.info('Setting Servername')
     server.set_server_name("Maschinenfertiger Example OPCUA Server")
 
     server.set_security_policy([ua.SecurityPolicyType.NoSecurity])
