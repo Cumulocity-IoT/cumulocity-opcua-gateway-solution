@@ -19,7 +19,7 @@ Edit `docker-compose.yaml` and adapt the properties `OPC_UA_GATEWAY_VERSION`, `b
         build:
         context: ./gateway
         args:
-            OPC_UA_GATEWAY_VERSION: 1011.0.22
+            OPC_UA_GATEWAY_VERSION: 1015.0.278
         environment:
         - baseUrl=https://TENANT_URL
         - tenantId=TENANT_ID
