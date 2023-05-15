@@ -9,10 +9,10 @@ services:
     build:
       context: ./gateway
       args:
-        OPC_UA_GATEWAY_VERSION: 1011.0.22
+        OPC_UA_GATEWAY_VERSION: 1015.0.278
     environment:
-    - baseUrl=https://TENANT_URL
-    - tenantId=TENANT_ID
+    - baseUrl=https://ck2.eu-latest.cumulocity.com/
+    - tenantId=t306817378
     - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE
     - gatewayName=Line1 Gateway
     volumes:

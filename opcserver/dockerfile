@@ -3,7 +3,7 @@ FROM python:3.6
 
 ### 2. Install opcua
 RUN pip install opcua
-
+ENV TZ="Europe/Berlin"
 ### 3. Start server
 EXPOSE 4840    
 ADD server.py /
