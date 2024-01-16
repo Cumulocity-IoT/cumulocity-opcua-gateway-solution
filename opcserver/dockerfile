@@ -7,4 +7,4 @@ ENV TZ="Europe/Berlin"
 ### 3. Start server
 EXPOSE 4840    
 ADD server.py /
-CMD ["python3", "server.py"]
+CMD ["python3", "server_generell.py"]
