@@ -90,7 +90,7 @@ if __name__ == "__main__":
         while True:
             i = i + 1
             # time.sleep(0.5)
-            time.sleep(2.0)
+            time.sleep(10.0)
             seconds = time.time()
             simPower = amplitude.get_value() * abs( math.sin(seconds * frequency / 100) )
             current.set_value( round(math.cos(seconds) * 10.0, 2))
