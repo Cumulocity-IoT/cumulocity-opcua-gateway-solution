@@ -1,4 +1,4 @@
 data/
 gateway/*.jar
 *.jar
-attic/docker-compose.yml
+attic/*
