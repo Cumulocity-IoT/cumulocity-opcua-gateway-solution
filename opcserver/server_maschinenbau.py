@@ -17,9 +17,8 @@ if __name__ == "__main__":
     # setup our server
     logger.info('Starting Server')
     server = Server()
-    server.set_endpoint("opc.tcp://0.0.0.0:4840/")
+    server.set_endpoint("opc.tcp://0.0.0.0:4840/site/")
     server.set_server_name("Maschinenfertiger Example OPCUA Server")
-
     server.set_security_policy([ua.SecurityPolicyType.NoSecurity])
     # setup our own namespace, not really necessary but should as spec
     uri = "http://anlagenbauer.freeopcua.io"
@@ -77,6 +76,7 @@ if __name__ == "__main__":
         while True:
             i = i + 1
             time.sleep(0.5)
+            time.sleep(5.0)
             seconds = time.time()
             simPower = amplitude.get_value() * abs( math.sin(seconds * frequency / 100) )
             current.set_value( round(math.cos(seconds) * 10.0, 2))

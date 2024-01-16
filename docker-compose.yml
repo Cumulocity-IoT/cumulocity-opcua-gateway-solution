@@ -9,11 +9,11 @@ services:
     build:
       context: ./gateway
       args:
-        OPC_UA_GATEWAY_VERSION: 1015.0.278
+        OPC_UA_GATEWAY_VERSION: 1017.0.289
     environment:
-    - baseUrl=https://TENANT_URL
-    - tenantId=TENANT_ID
-    - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE
-    - gatewayName=Line1 Gateway
+      - baseUrl=https://TENANT_URL
+      - tenantId=TENANT_ID
+      - gatewayIdentifier=GATEWAY_IDENTIFIER_LINE1
+      - gatewayName=Line1 Gateway
     volumes:
     - ./data/:/data

@@ -6,5 +6,5 @@ RUN pip install opcua
 ENV TZ="Europe/Berlin"
 ### 3. Start server
 EXPOSE 4840    
-ADD server.py /
-CMD ["python3", "server.py"]
+ADD server_generel.py /
+CMD ["python3", "server_generel.py"]
