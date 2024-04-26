@@ -9,7 +9,8 @@ services:
     build:
       context: ./gateway
       args:
-        OPC_UA_GATEWAY_VERSION: 1017.0.289
+        OPC_UA_GATEWAY_VERSION: 1018.0.308
+        #OPC_UA_GATEWAY_VERSION: 1017.0.289
     environment:
       - baseUrl=https://TENANT_URL
       - tenantId=TENANT_ID

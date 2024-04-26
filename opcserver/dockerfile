@@ -1,8 +1,8 @@
 ### 1. Get Linux
-FROM python:3.6
+FROM python:3.7
 
 ### 2. Install opcua
-RUN pip install opcua
+RUN pip install asyncua dataclasses
 ENV TZ="Europe/Berlin"
 ### 3. Start server
 EXPOSE 4840    

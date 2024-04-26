@@ -19,7 +19,7 @@ ADD logging.xml /
 ENV TZ="Europe/Berlin"
 # integrate opcua gateway
 # alternative 1
-ADD http://resources.cumulocity.com/examples/opc-ua/${OPC_UA_JAR} /
+ADD https://resources.cumulocity.com/examples/opc-ua/${OPC_UA_JAR} /
 
 # alternative 2
 # alternatively run the following commands locally
